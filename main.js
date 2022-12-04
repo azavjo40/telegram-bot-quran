@@ -1,8 +1,7 @@
 const { Telegraf } = require("telegraf");
 const fetch = require("node-fetch");
 
-const BOT_TOKEN = "5899895577:AAFo8qlFSIS2rqp46H8T9YKw5Em8xOV5WCg"
-const bot = new Telegraf(BOT_TOKEN);
+const bot = new Telegraf("5899895577:AAFo8qlFSIS2rqp46H8T9YKw5Em8xOV5WCg");
 
 let suraIndex = 1;
 let ayatIndex = 0;
@@ -65,7 +64,7 @@ bot.start(async (ctx) => {
 
 bot.hears("Предыдущий Сура", async (ctx) => {
   await getSuras(suraIndex - 1);
-  getCurrentlyAyats(ayatIndex);
+  getCurrentlyAyats(0);
   if (currentlyAyat?.translation) {
     ctx.reply(`Сура ${copyData?.translation} ${suraIndex}`);
     setTimeout(() => {
@@ -81,7 +80,7 @@ bot.hears("Предыдущий Сура", async (ctx) => {
 
 bot.hears("Следующий Сура", async (ctx) => {
   await getSuras(suraIndex + 1);
-  getCurrentlyAyats(ayatIndex);
+  getCurrentlyAyats(0);
   if (currentlyAyat?.translation) {
     ctx.reply(`Сура ${copyData?.translation} ${suraIndex}`);
     setTimeout(() => {
@@ -222,82 +221,9 @@ bot.hears("Swedish", async (ctx) => {
 
 bot.launch();
 
-// bot.on("text", async (ctx) => {
-//   try {
-//     const user = ctx?.update?.message?.from;
-//     const message = ctx?.update?.message?.text;
-//     if (message?.toLowerCase()?.includes("сура") && suraIndex != 114) {
-//       suraIndex = parseInt(message?.split(" ")[1]);
-//       ayatIndex = 1;
-//     }
-//     if (message?.toLowerCase()?.includes("аять") && ayansCopy?.length != ayatIndex) {
-//       ayatIndex = parseInt(message?.split(" ")[1]);
-//     }
-
-//     const response = await fetch(`https://cdn.jsdelivr.net/npm/quran-json@3.1.2/dist/chapters/ru/${suraIndex}.json`);
-//     const data = await response.json();
-//     ayansCopy = data?.verses;
-//     const answer = data?.verses[ayatIndex - 1];
-//     if (answer?.translation) {
-//       ctx.reply(
-//         `${data?.translation}
-//         ${answer?.translation}`,
-//         {
-//           reply_markup: {
-//             keyboard: [
-//               [
-//                 { text: `Сура ${suraIndex != 1 ? suraIndex - 1 : suraIndex}` },
-//                 { text: `Сура ${suraIndex}` },
-//                 { text: `Сура ${suraIndex + 1}` },
-//               ],
-//               [
-//                 { text: `Аять ${ayatIndex != 1 ? ayatIndex - 1 : ayatIndex}` },
-//                 { text: `Аять ${ayatIndex}` },
-//                 { text: `Аять ${ayatIndex + 1}` },
-//               ],
-//             ],
-//           },
-//         }
-//       );
-//     }
-//   } catch (e) {
-//     console.log(e);
-//   }
-// });
-
-// ctx.reply("Hello", {
-//   reply_markup: {
-//     inline_keyboard: [[{ text: "go", web_app: { url: "https://www.youtube.com/" } }]],
-//   },
-// });
-
-//https://cdn.jsdelivr.net/npm/quran-json@3.1.2/dist/chapters/ru/1.json
-// const response = await fetch("https://cdn.jsdelivr.net/npm/quran-json@3.1.2/dist/quran_ru.json");
-// const data = await response.json();
-// data?.map(async (item) => {
-//   ctx.reply(item?.translation);
-//   // await ctx.replyWithPhoto(item?.image )
-// });
-
-// ctx.reply("Hi there!", {
-//     reply_markup: {
-//         inline_keyboard: [
-//             /* Inline buttons. 2 side-by-side */
-//             [ { text: "Button 1", callback_data: "btn-1" }, { text: "Button 2", callback_data: "btn-2" } ],
-
-//             /* One button */
-//             [ { text: "Next", callback_data: "next" } ],
-
-//             /* Also, we can have URL buttons. */
-//             [ { text: "Open in browser", url: "telegraf.js.org" } ]
-//         ]
-//     }
-// });
-
-// ctx.reply('Hello', {
+// inline bitton
 //     reply_markup: {
 //         inline_keyboard: [
 //             [{ text: "go", web_app: { url: 'https://www.google.com/' } }],
 //         ]
 //     }
-// })
