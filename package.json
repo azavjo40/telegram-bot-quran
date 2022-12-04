@@ -4,8 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "nodemon src/main.js",
-    "build": "grunt build"
+    "start:dev": "nodemon src/main.js",
+    "start": "node src/main.js"
   },
   "author": "Azam",
   "license": "ISC",
