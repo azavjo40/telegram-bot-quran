@@ -5,18 +5,22 @@
   "main": "main.js",
   "scripts": {
     "start:dev": "nodemon main.js",
-    "install":"npm install",
+    "install": "npm install",
     "start": "node main.js"
   },
-  "author": "Azam",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azavjo40/telegram-bot-quran.git"
+  },
+  "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/azavjo40/telegram-bot-quran/issues"
+  },
+  "homepage": "https://github.com/azavjo40/telegram-bot-quran#readme",
   "dependencies": {
     "node-fetch": "^2.6.7",
-    "telegraf": "^4.11.2"
-  },
-  "devDependencies": {
     "nodemon": "^2.0.20",
-    "node-fetch": "^2.6.7",
     "telegraf": "^4.11.2"
   }
 }
