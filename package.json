@@ -6,7 +6,8 @@
   "scripts": {
     "start:dev": "nodemon src/main.js",
     "start": "node src/main.js",
-    "build": "npx grunt build"
+    "build": "npx grunt build",
+    "install":"npm install"
   },
   "author": "Azam",
   "license": "ISC",
