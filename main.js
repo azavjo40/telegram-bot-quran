@@ -1,8 +1,9 @@
 const { Telegraf } = require("telegraf");
 const fetch = require("node-fetch");
-require("dotenv").config();
 
-const bot = new Telegraf(process.env.BOT_TOKEN);
+const BOT_TOKEN = "5899895577:AAFo8qlFSIS2rqp46H8T9YKw5Em8xOV5WCg"
+const bot = new Telegraf(BOT_TOKEN);
+
 let suraIndex = 1;
 let ayatIndex = 0;
 let ayansCopy = [];

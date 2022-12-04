@@ -4,20 +4,16 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start:dev": "nodemon src/main.js",
-    "start": "node src/main.js",
+    "start:dev": "nodemon main.js",
+    "start": "node main.js",
     "build": "grunt build",
     "install":"npm install"
   },
   "author": "Azam",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^16.0.3",
-    "jimp": "^0.16.2",
     "node-fetch": "^2.6.7",
-    "pexels": "^1.4.0",
-    "telegraf": "^4.11.2",
-    "uuid": "^9.0.0"
+    "telegraf": "^4.11.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
